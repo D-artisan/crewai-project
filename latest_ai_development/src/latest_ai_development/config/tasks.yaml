@@ -1,6 +1,6 @@
 research_task:
   description: >
-    Conduct a thorough research about {topic}
+    Conduct a thorough research about {topic}.
     Make sure you find any interesting and relevant information given
     the current year is {current_year}.
   expected_output: >
