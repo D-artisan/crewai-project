@@ -1,5 +1,14 @@
 # LatestAiDevelopment Crew
 
+## Project Description
+
+This CrewAI project implements an AI research crew that automatically investigates and reports on the latest developments in artificial intelligence. The system consists of two specialized AI agents:
+
+- **Researcher Agent**: Searches for and gathers current information about AI trends, frameworks, and technologies using web search capabilities
+- **Reporting Analyst**: Analyzes the gathered research and creates comprehensive, well-formatted reports
+
+The crew generates timestamped markdown reports in the `reports/` directory, ensuring each analysis is preserved without overwriting previous outputs. This makes it perfect for tracking AI development trends over time and maintaining a historical record of research findings.
+
 Welcome to the LatestAiDevelopment Crew project, powered by [crewAI](https://crewai.com). This template is designed to help you set up a multi-agent AI system with ease, leveraging the powerful and flexible framework provided by crewAI. Our goal is to enable your agents to collaborate effectively on complex tasks, maximizing their collective intelligence and capabilities.
 
 ## Installation
@@ -37,7 +46,7 @@ $ crewai run
 
 This command initializes the latest-ai-development Crew, assembling the agents and assigning them tasks as defined in your configuration.
 
-This example, unmodified, will run the create a `report.md` file with the output of a research on LLMs in the root folder.
+This example, unmodified, will run the create timestamped report files in the `reports/` directory with research findings on AI topics. Each report is saved with a timestamp (format: `ai_research_report_YYYYMMDD_HHMMSS.md`) to prevent overwriting previous analyses.
 
 ## Understanding Your Crew
 

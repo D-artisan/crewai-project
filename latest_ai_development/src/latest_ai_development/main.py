@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import sys
 import warnings
+import os
 
 from datetime import datetime
 
@@ -17,13 +18,19 @@ def run():
     """
     Run the crew.
     """
+    # Ensure reports directory exists
+    os.makedirs('reports', exist_ok=True)
+    
     inputs = {
-        'topic': 'Open Source AI Agent Frameworks',
+        'topic': 'Open Source Secure MCP Servers',
         'current_year': str(datetime.now().year)
     }
     
     try:
-        LatestAiDevelopment().crew().kickoff(inputs=inputs)
+        result = LatestAiDevelopment().crew().kickoff(inputs=inputs)
+        print(f"\n✅ Crew execution completed successfully!")
+        print(f"📄 Report saved to timestamped file in reports/ directory")
+        return result
     except Exception as e:
         raise Exception(f"An error occurred while running the crew: {e}")
 
