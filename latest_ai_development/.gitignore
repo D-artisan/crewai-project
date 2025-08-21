@@ -1,3 +1,10 @@
 .env
 __pycache__/
 .DS_Store
+
+# Ignore all reports but keep the directory structure
+reports/*.md
+reports/*.txt
+reports/*.pdf
+reports/*.html
+!reports/.gitkeep

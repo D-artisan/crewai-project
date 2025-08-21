@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import sys
 import warnings
+import os
 
 from datetime import datetime
 
@@ -17,15 +18,35 @@ def run():
     """
     Run the crew.
     """
+    # Ensure reports directory exists
+    os.makedirs('reports', exist_ok=True)
+    
     inputs = {
-        'topic': 'Open Source AI Agent Frameworks',
+        'topic': 'Open Source Secure MCP Servers',
         'current_year': str(datetime.now().year)
     }
     
     try:
-        LatestAiDevelopment().crew().kickoff(inputs=inputs)
+        result = LatestAiDevelopment().crew().kickoff(inputs=inputs)
+        # Check if result was successful (has content)
+        if result and hasattr(result, 'raw') and result.raw:
+            print(f"\n✅ Crew execution completed successfully!")
+            print(f"📄 Report saved to timestamped file in reports/ directory")
+            return result
+        elif result:
+            print(f"\n✅ Crew execution completed successfully!")
+            print(f"📄 Report saved to timestamped file in reports/ directory")
+            return result
+        else:
+            print(f"\n⚠️ Crew execution completed but no result was returned")
+            return None
     except Exception as e:
-        raise Exception(f"An error occurred while running the crew: {e}")
+        # Log the actual exception for debugging
+        print(f"\n❌ An error occurred while running the crew: {e}")
+        print(f"🔍 Exception type: {type(e).__name__}")
+        print(f"🔍 Check the error details above for troubleshooting")
+        # Re-raise the original exception to preserve stack trace
+        raise
 
 
 def train():
